@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>ACI MIS</title>
+</head>
+<body>
+	<div class="row" id="searchdiv">
+		<form class="col s12 form_phone" action="/forward/" method="post">
+			<div class="row">
+				<div class="input-field col s4 offset-s4">
+					<i class="material-icons prefix">phone</i>
+					<input id="icon_telephone" type="tel" class="validate" name="text" autocomplete="off">
+					<label for="icon_telephone">Search Name</label>
+					<input type="submit" name="forwardBtn" value="Submit" id="showaction" />
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<div class="row" id="resultdiv">
+		{{ forward_message }} <br/>
+		<h5><a href = "\" id="anchorclick">Back</a></h5>
+	</div>
+		
+	<script src="{{url_for('static', filename='jquery-3.3.1.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
+	<script type="text/javascript">
+		/*$(document).ready(function(){
+			$("#showaction").click(function(){
+				$("#resultdiv").show();
+				$("#searchdiv").hide();
+			});
+			$("#anchorclick").click(function(){
+				$("#searchdiv").show();
+				$("#resultdiv").hide();
+			});
+		});*/
+	</script>
+	
+</body>
+</html>
