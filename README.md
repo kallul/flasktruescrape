@@ -1,4 +1,13 @@
-mkvirtualenv --python==python3.7 calllog_one_venv
-workon calllog_one_venv
+pip freeze > requirements.txt
+
+git add .
+git commit -m "Added requirements.txt"
+git push origin master
+
+git clone https://github.com/kallul/flasktruescrape.git
+
+
+mkvirtualenv --python==python3.7 flasktruescrape_venv
+workon flasktruescrape_venv
 pip3.7 install --user -r requirements.txt
-git checkout main.py
+git checkout app.py
