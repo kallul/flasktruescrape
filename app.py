@@ -14,10 +14,6 @@ from flask import Flask, render_template, Response, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route("/forward/", methods=['POST'])
 def move_forward():
     #Moving forward code
@@ -126,7 +122,8 @@ def move_forward():
         NAMEFIND = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((NAMEFINDATT))).get_attribute("outerHTML")
         print(NAMEFIND)
     except Exception as e:
-        print('kalke abar try koren')
+        #print('kalke abar try koren')
+        print("Oops!", e.__class__, "occurred.")
     
     driver.close()
     driver.quit()
