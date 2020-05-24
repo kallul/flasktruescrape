@@ -14,13 +14,17 @@ from flask import Flask, render_template, Response, request, redirect, url_for
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route("/forward/", methods=['POST'])
 def move_forward():
     #Moving forward code
     getnumber = request.form['phonenumber']
-    
-    exePath = 'driver/chromedriver.exe'     #os.path.join(os.getcwd(),'driver','chromedriver.exe')
-    logPath = 'driver/chromedriver.log'     #os.path.join(os.getcwd(),'driver','chromedriver.log')
+
+    exePath = 'driver/chromedriver.exe'
+    logPath = 'driver/chromedriver.log'
     serviceArgs = ['--verbose', '--readable-timestamp', '--append-log']
 
     service = Service(executable_path=exePath, log_path=logPath, service_args=serviceArgs)
@@ -29,7 +33,6 @@ def move_forward():
     service.process.pid
 
     options = webdriver.ChromeOptions()
-    #options.add_argument('--user-data-dir=C:\\Users\\aiza\\AppData\\Local\\Google\\Chrome\\User Data') 
     options.add_argument('--profile-directory=pySelenium')
     options.add_argument('--disable-popup-blocking')
     options.add_argument('--disable-default-apps')
@@ -124,7 +127,7 @@ def move_forward():
     except Exception as e:
         #print('kalke abar try koren')
         print("Oops!", e.__class__, "occurred.")
-    
+
     driver.close()
     driver.quit()
     service.stop()
@@ -133,7 +136,7 @@ def move_forward():
     html_doc = '''
     <html><head><title>Name: ''' + NAMEFIND + ', Operator:' + 'Operator, email, location and ....' + '''</title></head>
     <body>
-        
+
     <body>
     <html>
     '''
@@ -141,6 +144,8 @@ def move_forward():
     soup.text
     forward_message = (soup.text)
     return render_template('index.html', forward_message=forward_message)
+
+
 
 if __name__ == '__main__':
     app.run()
