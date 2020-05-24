@@ -21,7 +21,7 @@ def index():
 @app.route("/forward/", methods=['POST'])
 def move_forward():
     #Moving forward code
-    getnumber = request.form['text']
+    getnumber = request.form['phonenumber']
     
     exePath = 'driver/chromedriver.exe'     #os.path.join(os.getcwd(),'driver','chromedriver.exe')
     logPath = 'driver/chromedriver.log'     #os.path.join(os.getcwd(),'driver','chromedriver.log')

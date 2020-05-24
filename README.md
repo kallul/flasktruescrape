@@ -12,7 +12,7 @@ Click on “$ bash” button dashboard on pythonanywhere
 git clone https://github.com/kallul/flasktruescrape.git
 
 
-mkvirtualenv --python==python3.7 flasktruescrape_venv
-workon flasktruescrape_venv
-pip3.7 install --user -r requirements.txt
+mkvirtualenv --python==python3.8 scrape_venv
+workon scrape_venv
+pip3.8 install --user -r requirements.txt
 git checkout app.py
